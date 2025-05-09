@@ -1,0 +1,27 @@
+/* Base */
+@import "./styles//base/base.css";
+
+/* Layouts */
+@import "./styles/layouts/AdminLayout.css";
+
+/* Pages */
+@import "./styles/pages/HomePage.css";
+@import "./styles/pages/AboutUs.css";
+@import "./styles/pages/Contact.css";
+
+/* Components */
+@import "./styles/cmps/app-header.css";
+@import "./styles/cmps/events-list.css";
+@import "./styles/cmps/event-preview.css";
+@import "./styles/cmps/event-preview-home.css";
+@import "./styles/cmps/footer.css";
+@import "./styles/cmps/UserBanner.css";
+@import "./styles/cmps/GoogleMap.css";
+@import "./styles/cmps/contribution-list.css";
+@import "./styles/cmps/create-poll.css";
+@import "./styles/cmps/google-calendar.css";
+@import "./styles/cmps/poll.css";
+@import "./styles/cmps/chat-window.css";
+@import "./styles/cmps/chat-input-box.css";
+@import "./styles/cmps/chatbot.css";
+@import "./styles/cmps/Popup.css";

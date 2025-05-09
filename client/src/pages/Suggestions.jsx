@@ -1,7 +1,5 @@
 import React from "react";
 
-const About = () => {
+export default function Suggestions() {
   return <div></div>;
-};
-
-export default About;
+}

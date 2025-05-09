@@ -1,0 +1,50 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.contact-h {
+  display: flex;
+  justify-content: center;
+  color: #fe8b8b;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 67px;
+}
+
+.contact-p {
+  width: 560px;
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.contact-button {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-button button {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 177px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #0c4062;
+  border: 0;
+}

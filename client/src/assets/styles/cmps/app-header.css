@@ -1,0 +1,114 @@
+.app-header {
+  height: 70px;
+  border-bottom: 3px solid #0c4062;
+  background: #fff;
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick it to the top */
+  z-index: 1000; /* Make sure it stays above other content */
+}
+
+.logo-and-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 171.561px;
+  height: 51px;
+  margin-left: 170px;
+  margin-top: 9px;
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-top: 23px;
+  margin-bottom: 23px;
+}
+
+.logo-and-nav > nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-button.active {
+  color: #fe8b8b;
+}
+
+.sign-in__button {
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 5px 15px;
+  border-radius: 4px;
+  background: #fe8b8b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 170px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 44rem) {
+  .app-header {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    height: auto;
+  }
+
+  .logo-and-nav nav {
+    display: none;
+    width: 35%;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
+    z-index: 9;
+  }
+
+  .logo-and-nav nav.nav-open {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .logo-and-nav > nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 8rem;
+    margin: 0 auto;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
