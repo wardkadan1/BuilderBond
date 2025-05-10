@@ -16,36 +16,23 @@ export function RootLayout({
       const aboutEl = document.getElementById("about");
       const contactEl = document.getElementById("contact");
 
-      if (!homeEl || !aboutEl || !contactEl) {
-        return;
-      }
+      if (!homeEl || !aboutEl || !contactEl) return;
 
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const activationOffset = 100;
-
-      const homeTop = homeEl.getBoundingClientRect().top;
-      const aboutTop = aboutEl.getBoundingClientRect().top;
-      const contactTop = contactEl.getBoundingClientRect().top;
+      const isInView = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top < window.innerHeight / 2 &&
+          rect.bottom > window.innerHeight / 2
+        );
+      };
 
       let newActiveSection = "home";
 
-      const nearPageBottom = scrollY + windowHeight >= docHeight - 5;
-
-      if (
-        nearPageBottom &&
-        contactEl.getBoundingClientRect().top < windowHeight &&
-        contactEl.getBoundingClientRect().bottom > 0
-      ) {
+      if (isInView(contactEl)) {
         newActiveSection = "contact";
-      } else if (contactTop <= activationOffset) {
-        newActiveSection = "contact";
-      } else if (aboutTop <= activationOffset) {
+      } else if (isInView(aboutEl)) {
         newActiveSection = "about";
-      } else if (homeTop <= activationOffset) {
-        newActiveSection = "home";
-      } else {
+      } else if (isInView(homeEl)) {
         newActiveSection = "home";
       }
 
@@ -56,11 +43,8 @@ export function RootLayout({
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
 
   return (
     <div>

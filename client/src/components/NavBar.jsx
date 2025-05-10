@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function NavBar({
   onScrollToHomeMain,
@@ -9,8 +9,24 @@ export default function NavBar({
   activeSection,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  console.log(location);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleScrollOrNavigate = (scrollFunc) => {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        scrollFunc();
+      }, 100);
+    } else {
+      scrollFunc();
+    }
+    setMenuOpen(false);
+  };
 
   return (
     <header className="app-header">
@@ -26,10 +42,12 @@ export default function NavBar({
                 href="#home"
                 onClick={(e) => {
                   e.preventDefault();
-                  onScrollToHomeMain();
+                  handleScrollOrNavigate(onScrollToHomeMain);
                 }}
                 className={`nav-button ${
-                  activeSection === "home" ? "active" : ""
+                  activeSection === "home" && location.pathname === "/"
+                    ? "active"
+                    : ""
                 }`}
               >
                 Home
@@ -40,10 +58,12 @@ export default function NavBar({
                 href="#about"
                 onClick={(e) => {
                   e.preventDefault();
-                  onScrollToAbout();
+                  handleScrollOrNavigate(onScrollToAbout);
                 }}
                 className={`nav-button ${
-                  activeSection === "about" ? "active" : ""
+                  activeSection === "about" && location.pathname === "/"
+                    ? "active"
+                    : ""
                 }`}
               >
                 About
@@ -54,17 +74,24 @@ export default function NavBar({
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  onScrollContactUs();
+                  handleScrollOrNavigate(onScrollContactUs);
                 }}
                 className={`nav-button ${
-                  activeSection === "contact" ? "active" : ""
+                  activeSection === "contact" && location.pathname === "/"
+                    ? "active"
+                    : ""
                 }`}
               >
                 Contact Us
               </a>
             </li>
             <li>
-              <Link to="/suggestions" className="nav-button">
+              <Link
+                to="/suggestions"
+                className={`nav-button ${
+                  location.pathname === "/suggestions" ? "active" : ""
+                }`}
+              >
                 Suggestions
               </Link>
             </li>
