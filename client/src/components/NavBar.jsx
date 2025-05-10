@@ -97,7 +97,10 @@ export default function NavBar({
             </li>
           </ul>
         </nav>
-        <button className="sign-in__button">Login</button>
+        <section className="nav-buttons">
+          <button className="sign-in-left-button">Sign In</button>
+          <button className="sign-in-right-button">Sign Up</button>
+        </section>
       </div>
     </header>
   );
